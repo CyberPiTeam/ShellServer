@@ -1,0 +1,8 @@
+version: "2.0"
+services:
+        shellserver:
+                build: .
+                hostname: 'shellserver'
+                ports:
+                - "1911:80"
+                - "1912:22"
