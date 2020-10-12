@@ -17,7 +17,16 @@ RUN node setupchals.js
 
 RUN ./setupwetty.sh
 
+
 RUN chmod o-rwx /app
+
+RUN cp -r /app/frontend/* /var/www/html
+
+WORKDIR /app/registrationapp
+
+RUN npm install
+
+WORKDIR /app
 
 EXPOSE 22
 
