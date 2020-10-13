@@ -1,17 +1,36 @@
-FROM node:latest
+FROM kalilinux/kali-rolling
 
 WORKDIR /app
 
 COPY . /app
 
-#set up ssh and wetty
-RUN apt-get update && apt-get install -y net-tools && apt-get install -y openssh-server && apt-get install -y curl && apt-get install -y nginx 
+#set
+#RUN apt-get update && apt-get install -y net-tools && apt-get install -y openssh-server && apt-get install -y curl && apt-get install -y nginx  && apt-get install -y man-db && apt-get install -y nodejs 
+#Install tools for system
+RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db nodejs npm git quota
+
+#Install tools for users
+
+RUN apt-get install -y vim tmux
 
 COPY shellserver.conf /etc/nginx/conf.d/
 
 #RUN apt-get install sudo
 
 #call challenge creation scripts
+
+
+#Harden host
+
+#RUN groupadd users
+
+RUN chmod 700 /usr/bin/wall
+
+RUN echo 'EXTRA_GROUPS="users"' >> /etc/adduser.conf
+#set users group blocks and inodes limit
+#RUN setquota -g users 8192 8192 10000 10000 /
+
+COPY limits.conf /etc/security/limits.conf
 
 RUN node setupchals.js
 

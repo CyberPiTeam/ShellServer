@@ -36,7 +36,7 @@ app.post('/register',async (req,res)=>{
 			success:false,
 			message:'Invalid password. Must be alphanumeric. Sorry.'
 		});
-	res.send(await addUser(req.body.username,req.body.password));
+	res.send(addUser(req.body.username,req.body.password));
 });
 
 
@@ -48,7 +48,8 @@ const addUser = (username, password)=>{
 			success:false,
 			message:'User already exists!'
 		}
-	execSync(`printf "${password}\n${password}\n\n\n\n\n\n\n" | adduser ${username}`);
+	execSync(`printf "${password}\n${password}\n\n\n\n\n\n\n" | adduser --add_extra_groups ${username}`);
+	fs.writeFileSync(`/home/${username}/.hushlogin`,'');
 	return {
 		success: true,
 		message: 'Registered user!'
