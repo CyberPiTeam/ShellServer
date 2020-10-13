@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling
+FROM donaldrich/kali-linux
 
 WORKDIR /app
 
