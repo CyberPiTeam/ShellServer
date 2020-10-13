@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-#set
-#RUN apt-get update && apt-get install -y net-tools && apt-get install -y openssh-server && apt-get install -y curl && apt-get install -y nginx  && apt-get install -y man-db && apt-get install -y nodejs 
 #Install tools for system
 RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db nodejs npm git quota
 
@@ -38,10 +36,16 @@ RUN echo 'umask 0066' >> /etc/bash.bashrc
 
 RUN echo 'cat /etc/motd' >> /etc/bash.bashrc
 
-RUN node setupchals.js
+RUN mkdir -p /usr/share/challenges
+
+WORKDIR /user/share/challenges
+
+#Clone the challenges repo
+#RUN git clone 
+
+WORKDIR /app
 
 RUN ./setupwetty.sh
-
 
 RUN chmod o-rwx /app
 
