@@ -32,6 +32,12 @@ RUN echo 'EXTRA_GROUPS="users"' >> /etc/adduser.conf
 
 COPY limits.conf /etc/security/limits.conf
 
+COPY motd /etc/motd
+
+RUN echo 'umask 0066' >> /etc/bash.bashrc
+
+RUN echo 'cat /etc/motd' >> /etc/bash.bashrc
+
 RUN node setupchals.js
 
 RUN ./setupwetty.sh
