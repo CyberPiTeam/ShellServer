@@ -1,11 +1,11 @@
-FROM donaldrich/kali-linux
+FROM node:lts-buster
 
 WORKDIR /app
 
 COPY . /app
 
 #Install tools for system
-RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db nodejs npm git quota
+RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db git python3
 
 #Install tools for users
 
