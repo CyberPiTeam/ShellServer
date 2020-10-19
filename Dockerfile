@@ -38,10 +38,7 @@ RUN echo 'cat /etc/motd' >> /etc/bash.bashrc
 
 RUN mkdir -p /usr/share/challenges
 
-WORKDIR /user/share/challenges
-
-#Clone the challenges repo
-#RUN git clone 
+RUN cp -r /app/challenges /usr/share/
 
 WORKDIR /app
 

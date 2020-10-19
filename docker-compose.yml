@@ -6,3 +6,5 @@ services:
                 ports:
                 - "1911:80"
                 - "1912:22"
+                restart: 'always'
+
