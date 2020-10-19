@@ -1,0 +1,2 @@
+#!/bin/bash
+echo `base64 -d  <<< "ZmxhZ3tzY3JpcHRfZXhlY3V0ZWR9"`
