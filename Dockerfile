@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . /app
 
 #Install tools for system
-RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db git python3
+RUN apt-get update && apt-get install -y net-tools openssh-server curl nginx man-db git python3 netcat ssh nmap ftp dnsutils
 
 #Install tools for users
 
