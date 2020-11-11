@@ -13,14 +13,7 @@ RUN apt-get install -y vim tmux
 
 COPY shellserver.conf /etc/nginx/conf.d/
 
-#RUN apt-get install sudo
-
-#call challenge creation scripts
-
-
 #Harden host
-
-#RUN groupadd users
 
 RUN chmod 700 /usr/bin/wall
 
@@ -36,15 +29,20 @@ RUN echo 'umask 0066' >> /etc/bash.bashrc
 
 RUN echo 'cat /etc/motd' >> /etc/bash.bashrc
 
+#copy challenges over
+
 RUN mkdir -p /usr/share/challenges
 
 RUN cp -r /app/challenges /usr/share/
 
+#setup wetty 
 WORKDIR /app
 
 RUN ./setupwetty.sh
 
 RUN chmod o-rwx /app
+
+#setup registration app
 
 RUN cp -r /app/frontend/* /var/www/html
 
@@ -53,6 +51,10 @@ WORKDIR /app/registrationapp
 RUN npm install
 
 WORKDIR /app
+
+#setup dns
+
+RUN echo "nameserver 10.30.0.1" > /etc/resolv.conf
 
 EXPOSE 22
 
