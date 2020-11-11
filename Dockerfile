@@ -52,10 +52,6 @@ RUN npm install
 
 WORKDIR /app
 
-#setup dns
-
-RUN echo "nameserver 10.30.0.1" > /etc/resolv.conf
-
 EXPOSE 22
 
 EXPOSE 80
