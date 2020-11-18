@@ -40,6 +40,8 @@ WORKDIR /app
 
 RUN chmod +x ./setupwetty.sh
 
+RUN ./setupwetty.sh
+
 RUN chmod o-rwx /app
 
 #setup registration app
@@ -57,3 +59,5 @@ EXPOSE 22
 EXPOSE 80
 
 RUN chmod +x ./run.sh
+
+CMD ["./run.sh"]
