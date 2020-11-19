@@ -38,6 +38,8 @@ RUN cp -r /app/challenges /usr/share/
 #setup wetty 
 WORKDIR /app
 
+RUN chmod +x ./setupwetty.sh
+
 RUN ./setupwetty.sh
 
 RUN chmod o-rwx /app
@@ -55,5 +57,7 @@ WORKDIR /app
 EXPOSE 22
 
 EXPOSE 80
+
+RUN chmod +x ./run.sh
 
 CMD ["./run.sh"]
