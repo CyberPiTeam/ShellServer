@@ -22,11 +22,11 @@
 					password: password.value
 				})
 			})).json();
+			if(!result.success)
+				return alert(result.message);
 			username.value = '';
 			password.value = '';
 			password2.value = '';
-			if(!result.success)
-				return alert(result.message);
 			alert('Registration successful, log in with credentials now.');
 			location.href = '/wetty';
 		}

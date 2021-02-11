@@ -26,10 +26,10 @@ app.post('/register',async (req,res)=>{
 		});
 
 	//validate username is alphanumeric
-	if(!(/^[a-z0-9]+$/i.test(req.body.username)))
+	if(!(/^[a-z0-9]+$/.test(req.body.username)))
 		return res.send({
 			success:false,
-			message:'Invalid username. Must be alphanumeric.'
+			message:'Invalid username. Must be alphanumeric and lowercase.'
 		});
 	/*if(!(/^[a-z0-9]+$/i.test(req.body.password)))
 		return res.send({
