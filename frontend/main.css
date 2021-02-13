@@ -20,6 +20,24 @@ body {
   text-align:center;
 }
 
+h3{
+	color: white;
+}
+
+a{
+	text-decoration: none;
+	color #00a4a2;
+}
+
+a:link {
+  color: #00a4a2;
+}
+
+a:visited {
+  color: #00a4a2;
+}
+
+
 /* SHELL SERVER HEADING */
 #title {
   -webkit-animation: logo-entry 4s ease-in;
@@ -60,7 +78,7 @@ h1 {
           box-shadow: 0 0 15px #00fffd;
   border-radius: 5px;
   display: inline-block;
-  height: 270px;
+  height: 300px;
   margin: 30px auto 0;
   position: relative;
   z-index: 4;
@@ -229,13 +247,13 @@ h1 {
   }
   40% {
     width: 0;
-    height: 270px;
+    height: 300px;
     border: 6px solid #00a4a2;
     opacity: 1;
     padding: 0;
   }
   100% {
-    height: 270px;
+    height: 300px;
     width: 600px;
   }
 }
@@ -256,13 +274,13 @@ h1 {
   }
   40% {
     width: 0;
-    height: 270px;
+    height: 300px;
     border: 6px solid #00a4a2;
     opacity: 1;
     padding: 0;
   }
   100% {
-    height: 270px;
+    height: 300px;
     width: 600px;
   }
 }
